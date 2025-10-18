@@ -6,7 +6,8 @@ import {useAppSelector, useAppDispatch} from './useAppDispatch';
 import {updateDomainFromWebSocket} from '../store/slices/domainsSlice';
 import {DomainDetail} from '../types/domain.types';
 
-window.Pusher = Pusher;
+// @ts-ignore - Pusher needs to be assigned to global for laravel-echo
+global.Pusher = Pusher;
 
 export const useWebSocket = () => {
   const echoRef = useRef<Echo<'reverb'> | null>(null);
